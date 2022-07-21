@@ -1,0 +1,17 @@
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Business.deps.json
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Business.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Business.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Core.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Core.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.csproj.AssemblyReference.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.AssemblyInfoInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.AssemblyInfo.cs
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.csproj.CoreCompileInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.csproj.CopyComplete
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Business\obj\Debug\netcoreapp3.1\FinalProject.Business.pdb

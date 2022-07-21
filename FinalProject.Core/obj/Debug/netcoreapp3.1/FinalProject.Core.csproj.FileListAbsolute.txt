@@ -1,0 +1,13 @@
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\bin\Debug\netcoreapp3.1\FinalProject.Core.deps.json
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\bin\Debug\netcoreapp3.1\FinalProject.Core.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\bin\Debug\netcoreapp3.1\FinalProject.Core.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.csproj.AssemblyReference.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.AssemblyInfoInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.AssemblyInfo.cs
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.csproj.CopyComplete
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Core\obj\Debug\netcoreapp3.1\FinalProject.Core.pdb
