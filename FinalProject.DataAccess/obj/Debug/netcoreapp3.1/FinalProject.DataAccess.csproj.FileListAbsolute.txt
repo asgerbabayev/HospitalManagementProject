@@ -1,3 +1,7 @@
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.AssemblyInfoInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.AssemblyInfo.cs
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.deps.json
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.runtimeconfig.json
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.runtimeconfig.dev.json
@@ -8,10 +12,6 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcor
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcoreapp3.1\FinalProject.Core.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.csproj.AssemblyReference.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.AssemblyInfoInputs.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.AssemblyInfo.cs
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.csproj.CopyComplete
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.DataAccess\obj\Debug\netcoreapp3.1\FinalProject.DataAccess.pdb

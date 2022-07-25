@@ -3,6 +3,7 @@ using FinalProject.Core.Extensions;
 using FinalProject.Core.Utilities.IoC;
 using FinalProject.Core.Utilities.Security.Encryption;
 using FinalProject.Core.Utilities.Security.JWT;
+using FinalProject.Core.Utilities.Security.Mail;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,9 +28,19 @@ namespace FinalProject.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowAnyOrigin();
+            }));
             services.AddDependencyResolvers(new ICoreModule[] {
                 new CoreModule()
             });
+            var emailConfig = Configuration.GetSection("EmailConfiguration")
+                   .Get<EmailConfiguration>();
+            services.AddSingleton(emailConfig);
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -47,9 +58,6 @@ namespace FinalProject.Api
                         ClockSkew = TimeSpan.Zero
                     };
                 });
-            services.AddDependencyResolvers(new ICoreModule[] {
-                new CoreModule()
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +67,9 @@ namespace FinalProject.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 

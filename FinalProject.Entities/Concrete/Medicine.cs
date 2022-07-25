@@ -12,6 +12,5 @@ namespace FinalProject.Entities.Concrete
         public string Type { get; set; }
         public string BarcodeNumber { get; set; }
         public string Quantity { get; set; }
-        public int PrescriptionId { get; set; }
     }
 }

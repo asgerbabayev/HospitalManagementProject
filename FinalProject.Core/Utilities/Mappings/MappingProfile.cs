@@ -11,7 +11,8 @@ namespace FinalProject.Core.Utilities.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<User, RegisterDto>().ReverseMap();
+            CreateMap<Doctor, LoginDto>().ReverseMap();
+            CreateMap<Doctor, DoctorAddDto>().ReverseMap();
         }
     }
 }

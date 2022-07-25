@@ -22,10 +22,10 @@ namespace FinalProject.Api.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IUserService _userService;
-        public AuthController(IUserService userService)
+        private readonly IDoctorService _doctorService;
+        public AuthController(IDoctorService doctorService)
         {
-            _userService = userService;
+            _doctorService = doctorService;
         }
 
         [HttpGet, Authorize]
@@ -41,16 +41,12 @@ namespace FinalProject.Api.Controllers
             LoginValidator loginValidation = new LoginValidator();
             ValidationResult results = loginValidation.Validate(loginDto);
             if (!results.IsValid)
-            {
                 foreach (var e in results.Errors)
-                {
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
-                }
-            }
-            var userToLogin = _userService.Login(loginDto);
-            if (!userToLogin.Success) return StatusCode(StatusCodes.Status400BadRequest, userToLogin);
+            var doctorToLogin = _doctorService.Login(loginDto);
+            if (!doctorToLogin.Success) return StatusCode(StatusCodes.Status400BadRequest, doctorToLogin);
 
-            var result = _userService.CreateAccessToken(userToLogin.Data);
+            var result = _doctorService.CreateAccessToken(doctorToLogin.Data);
             if (result.Success) return Ok(result);
 
             return StatusCode(StatusCodes.Status400BadRequest, result);

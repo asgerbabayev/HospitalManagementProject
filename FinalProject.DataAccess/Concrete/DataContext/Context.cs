@@ -14,20 +14,19 @@ namespace FinalProject.DataAccess.Concrete.DataContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
+            modelBuilder.Entity<Doctor>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Role> Roles { get; set; }
-        //public DbSet<Clinic> Clinics { get; set; }
-        //public DbSet<Address> Addresses { get; set; }
-        //public DbSet<Doctor> Doctors { get; set; }
-        //public DbSet<Material> Materials { get; set; }
-        //public DbSet<Medicine> Medicines { get; set; }
-        //public DbSet<Prescription> Prescriptions { get; set; }
-        //public DbSet<Patient> Patients { get; set; }
-        //public DbSet<Room> Rooms { get; set; }
-        //public DbSet<Stock> Stocks { get; set; }
-        //public DbSet<Registry> Registries { get; set; }
+        public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Material> Materials { get; set; }
+        public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<Prescription> Prescriptions { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Registry> Registries { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace FinalProject.Business.ValidationRules.FluentValidation
 {
@@ -10,7 +11,7 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
     {
         public LoginValidator()
         {
-            RuleFor(e => e.Email).NotEmpty().NotNull().EmailAddress();
+            RuleFor(e => e.Email).NotEmpty().NotNull().Matches(new Regex(@"^([a-zA-Z]+[a-zA-z.!#$%&'*+-=?^`{|}~]{0,64})+[@]+[a-zA-z-]+[.]+[a-zA-z]+$"));
         }
     }
 }

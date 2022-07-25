@@ -3,6 +3,7 @@ using FinalProject.Business.Abstract;
 using FinalProject.Business.Concrete;
 using FinalProject.Business.ValidationRules.FluentValidation;
 using FinalProject.Core.Utilities.Security.JWT;
+using FinalProject.Core.Utilities.Security.Mail;
 using FinalProject.DataAccess.Abstract;
 using FinalProject.DataAccess.Concrete.EntityFramework;
 using System;
@@ -15,8 +16,9 @@ namespace FinalProject.Business.DependencyResolvers
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
-            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            builder.RegisterType<DoctorManager>().As<IDoctorService>().SingleInstance();
+            builder.RegisterType<EfDoctorDal>().As<IDoctorDal>().SingleInstance();
+
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
         }
     }

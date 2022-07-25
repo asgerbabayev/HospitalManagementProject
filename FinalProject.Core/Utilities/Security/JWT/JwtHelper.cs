@@ -22,12 +22,12 @@ namespace FinalProject.Core.Utilities.Security.JWT
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
         }
-        public AccessToken CreateToken(User user, List<Role> role)
+        public AccessToken CreateToken(Doctor doctor, List<Role> role)
         {
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, role);
+            var jwt = CreateJwtSecurityToken(_tokenOptions, doctor, signingCredentials, role);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
 
@@ -39,7 +39,7 @@ namespace FinalProject.Core.Utilities.Security.JWT
 
         }
 
-        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user,
+        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Doctor doctor,
             SigningCredentials signingCredentials, List<Role> role)
         {
             var jwt = new JwtSecurityToken(
@@ -47,17 +47,17 @@ namespace FinalProject.Core.Utilities.Security.JWT
                 audience: tokenOptions.Audience,
                 expires: _accessTokenExpiration,
                 notBefore: DateTime.Now,
-                claims: SetClaims(user, role),
+                claims: SetClaims(doctor, role),
                 signingCredentials: signingCredentials
             );
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<Role> role)
+        private IEnumerable<Claim> SetClaims(Doctor doctor, List<Role> role)
         {
             var claims = new List<Claim>();
-            claims.AddNameIdentifier(user.Id.ToString());
-            claims.AddEmail(user.Email);
+            claims.AddNameIdentifier(doctor.Id.ToString());
+            claims.AddEmail(doctor.Email);
             claims.AddRoles(role.Select(u => u.Name).ToArray());
 
             return claims;
