@@ -1,8 +1,3 @@
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfoInputs.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfo.cs
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.csproj.CoreCompileInputs.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FinalProject.Api.exe
@@ -19,11 +14,6 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Google.Apis.dll
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Google.Apis.Gmail.v1.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
@@ -67,10 +57,15 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FinalProject.DataAccess.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.csproj.AssemblyReference.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfoInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfo.cs
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.csproj.CoreCompileInputs.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\staticwebassets\FinalProject.Api.StaticWebAssets.Manifest.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.RazorTargetAssemblyInfo.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.csproj.CopyComplete
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.genruntimeconfig.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cs

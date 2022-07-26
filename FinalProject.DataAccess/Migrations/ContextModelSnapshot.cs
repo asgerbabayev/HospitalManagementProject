@@ -21,7 +21,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -45,7 +45,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Clinic", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -63,7 +63,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Doctor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -127,7 +127,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Material", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -152,7 +152,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Medicine", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -160,10 +160,10 @@ namespace FinalProject.DataAccess.Migrations
                     b.Property<string>("BarcodeNumber")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
+                    b.Property<int>("Count")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("Quantity")
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
@@ -176,7 +176,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Patient", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);

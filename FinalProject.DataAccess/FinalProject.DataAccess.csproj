@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220725234322_MedicineTableFixed.cs" />
+    <Compile Remove="Migrations\20220725234322_MedicineTableFixed.Designer.cs" />
+    <Compile Remove="Migrations\20220725234450_MedicineTableFixed.cs" />
+    <Compile Remove="Migrations\20220725234450_MedicineTableFixed.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.26">
       <PrivateAssets>all</PrivateAssets>

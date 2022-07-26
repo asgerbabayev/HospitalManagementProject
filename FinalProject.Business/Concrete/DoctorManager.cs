@@ -10,8 +10,8 @@ using FinalProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using FinalProject.Core.Utilities.Security.JWT;
+using FinalProject.Core.Utilities.Security.Hashing;
 
 namespace FinalProject.Business.Concrete
 {
@@ -39,6 +39,55 @@ namespace FinalProject.Business.Concrete
             return new SuccessDataResult<Doctor>(doctorExist, Messages.LoggedIn);
         }
 
+        public IResult Add(DoctorDto doctorAddDto)
+        {
+            doctorAddDto.Password = BCrypt.Net.BCrypt.HashPassword(doctorAddDto.Password);
+            doctorAddDto.RoleId = 2;
+            var result = BusinessRules.Run(CheckEmail(doctorAddDto.Email),
+                CheckIdentificationNumber(doctorAddDto.IdentificationNumber),
+                CheckPhoneNumber(doctorAddDto.PhoneNumber), SendConfirmationMail(doctorAddDto.Email));
+            if (!result.Success) return new ErrorResult(result.Message);
+            _doctorDal.Add(_mapper.Map<Doctor>(doctorAddDto));
+            return new Result(true, Messages.DoctorAdded);
+        }
+
+
+        public IResult Update(DoctorDto doctorUpdateDto)
+        {
+            Doctor doctor = new Doctor
+            {
+                Id = doctorUpdateDto.Id,
+                Name = doctorUpdateDto.Name,
+                Surname = doctorUpdateDto.Surname,
+                Email = doctorUpdateDto.Email,
+                Password = doctorUpdateDto.Password,
+                PhoneNumber = doctorUpdateDto.PhoneNumber,
+                IdentificationNumber = doctorUpdateDto.IdentificationNumber,
+                BirthDate = doctorUpdateDto.BirthDate,
+                Collage = doctorUpdateDto.Collage,
+                Position = doctorUpdateDto.Position,
+                Education = doctorUpdateDto.Education,
+                CertificateNo = doctorUpdateDto.CertificateNo,
+                ClinicId = doctorUpdateDto.ClinicId,
+                RoleId = 2,
+                Status = doctorUpdateDto.Status,
+            };
+
+            _doctorDal.Update(doctor);
+            return new Result(true, Messages.DoctorUpdated);
+        }
+        public IResult Delete(int id)
+        {
+            var doctor = _doctorDal.Get(d => d.Id == id);
+            _doctorDal.Delete(doctor);
+            return new Result(true, Messages.DoctorDeleted);
+        }
+
+        public IDataResult<List<Doctor>> GetAll()
+        {
+            return new SuccessDataResult<List<Doctor>>(_doctorDal.GetAll(x=>x.RoleId == 2), Messages.DoctorsListed);
+        }
+
         public IDataResult<Doctor> ChangePassword(string email, string oldPassword, string newPassword)
         {
             var doctorExist = _doctorDal.Get(e => e.Email == email);
@@ -56,30 +105,6 @@ namespace FinalProject.Business.Concrete
             var claims = GetClaims(doctor).Data;
             var accessToken = _tokenHelper.CreateToken(doctor, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.TokenCreated);
-        }
-
-        public IResult Add(DoctorAddDto doctorAddDto)
-        {
-            doctorAddDto.Password = BCrypt.Net.BCrypt.HashPassword(doctorAddDto.Password);
-            doctorAddDto.RoleId = 2;
-            doctorAddDto.Status = false;
-            var result = BusinessRules.Run(CheckEmail(doctorAddDto.Email),
-                CheckIdentificationNumber(doctorAddDto.IdentificationNumber),
-                CheckPhoneNumber(doctorAddDto.PhoneNumber), SendConfirmationMail(doctorAddDto.Email));
-            if (!result.Success) return new ErrorResult(result.Message);
-            _doctorDal.Add(_mapper.Map<Doctor>(doctorAddDto));
-
-            return new Result(true, result.Message);
-        }
-
-        public IResult Delete(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IResult Update(DoctorAddDto doctorAddDto)
-        {
-            throw new NotImplementedException();
         }
 
         public IResult SendConfirmationMail(string email)
@@ -103,6 +128,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult CheckIsConfirmedAccount(string email)
         {
+            email = HashString.Decode(email);
             var result = _doctorDal.Get(e => e.Email == email);
             if (result.EmailConfirmation == false)
             {

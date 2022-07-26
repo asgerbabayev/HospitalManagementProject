@@ -10,12 +10,13 @@ namespace FinalProject.Business.Abstract
 {
     public interface IDoctorService
     {
-        IResult Add(DoctorAddDto doctorAddDto);
-        IResult Update(DoctorAddDto doctorAddDto);
+        IResult Add(DoctorDto doctorDto);
+        IResult Update(DoctorDto doctorDto);
         IResult Delete(int Id);
-        public IDataResult<Doctor> Login(LoginDto loginDto);
-        public IDataResult<AccessToken> CreateAccessToken(Doctor doctor);
-        public IResult CheckIsConfirmedAccount(string email);
-        public string ConfirmationMessage();
+        IDataResult<List<Doctor>> GetAll();
+        IDataResult<Doctor> Login(LoginDto loginDto);
+        IDataResult<AccessToken> CreateAccessToken(Doctor doctor);
+        IResult CheckIsConfirmedAccount(string email);
+        string ConfirmationMessage();
     }
 }

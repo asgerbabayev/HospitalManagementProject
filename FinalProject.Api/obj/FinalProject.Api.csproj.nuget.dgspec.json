@@ -223,13 +223,13 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.1.2, )"
-            },
-            "Google.Apis.Gmail.v1": {
-              "target": "Package",
-              "version": "[1.57.0.2650, )"
             },
             "MailKit": {
               "target": "Package",

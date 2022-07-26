@@ -7,10 +7,10 @@ namespace FinalProject.Entities.Concrete
 {
     public class Medicine : IEntity
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string BarcodeNumber { get; set; }
-        public string Quantity { get; set; }
+        public int Count { get; set; }
     }
 }

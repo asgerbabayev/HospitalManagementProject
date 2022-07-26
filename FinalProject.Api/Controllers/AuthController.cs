@@ -23,17 +23,8 @@ namespace FinalProject.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IDoctorService _doctorService;
-        public AuthController(IDoctorService doctorService)
-        {
-            _doctorService = doctorService;
-        }
+        public AuthController(IDoctorService doctorService) => _doctorService = doctorService;
 
-        [HttpGet, Authorize]
-        public IActionResult GetUsers()
-        {
-            var c = User.Claims(ClaimTypes.Email);
-            return Ok(c);
-        }
 
         [HttpPost("login")]
         public IActionResult Login(LoginDto loginDto)
@@ -43,10 +34,10 @@ namespace FinalProject.Api.Controllers
             if (!results.IsValid)
                 foreach (var e in results.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
-            var doctorToLogin = _doctorService.Login(loginDto);
-            if (!doctorToLogin.Success) return StatusCode(StatusCodes.Status400BadRequest, doctorToLogin);
+            var resultService = _doctorService.Login(loginDto);
+            if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService);
 
-            var result = _doctorService.CreateAccessToken(doctorToLogin.Data);
+            var result = _doctorService.CreateAccessToken(resultService.Data);
             if (result.Success) return Ok(result);
 
             return StatusCode(StatusCodes.Status400BadRequest, result);

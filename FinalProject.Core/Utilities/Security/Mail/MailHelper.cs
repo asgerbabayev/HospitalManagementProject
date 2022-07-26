@@ -1,11 +1,4 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Gmail.v1;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using Microsoft.AspNetCore.Hosting;
-using System;
-using System.IO;
-using System.Threading;
+﻿using Microsoft.AspNetCore.Hosting;
 using FinalProject.Core.Utilities.Security.Hashing;
 using MimeKit;
 using MailKit.Net.Smtp;
@@ -46,10 +39,12 @@ namespace FinalProject.Core.Utilities.Security.Mail
 
         public string MailContent(string email)
         {
+            email = HashString.Encode(email);
+            string url = $"https://localhost:44398/doctor/confirmation/{email}";
             return string.Format(@$"<div style='text-align: center; margin-top:50px'>
                                           <h1 style='text-align: center; color:rgb(15, 166, 226)'>Welcome to Hospital Management System</h1>
                                           <h3 style='text-align: center; color:rgb(37, 113, 143)'>Click below button for verify your Email</h3>
-                                          <form method='post' action='https://localhost:44398/doctor/confirmation/{email}' style = 'display: inline;'>
+                                          <form method='post' action='{url}' style = 'display: inline;'>
                                           <button type='submit' id='btnSend' style='padding: 10px 100px;
                                                                                     cursor: pointer;
                                                                                     border: none;
@@ -61,7 +56,6 @@ namespace FinalProject.Core.Utilities.Security.Mail
                                          </button>
                                       </form>
                                     </div>
-                            
 
 ", email);
         }
