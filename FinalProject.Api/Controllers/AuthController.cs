@@ -22,8 +22,8 @@ namespace FinalProject.Api.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IDoctorService _doctorService;
-        public AuthController(IDoctorService doctorService) => _doctorService = doctorService;
+        private readonly IEmployeeService _employeeService;
+        public AuthController(IEmployeeService employeeService) => _employeeService = employeeService;
 
 
         [HttpPost("login")]
@@ -34,10 +34,10 @@ namespace FinalProject.Api.Controllers
             if (!results.IsValid)
                 foreach (var e in results.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
-            var resultService = _doctorService.Login(loginDto);
+            var resultService = _employeeService.Login(loginDto);
             if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService);
 
-            var result = _doctorService.CreateAccessToken(resultService.Data);
+            var result = _employeeService.CreateAccessToken(resultService.Data);
             if (result.Success) return Ok(result);
 
             return StatusCode(StatusCodes.Status400BadRequest, result);

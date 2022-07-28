@@ -22,7 +22,7 @@ namespace FinalProject.Core.Utilities.Security.JWT
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
         }
-        public AccessToken CreateToken(Doctor doctor, List<Role> role)
+        public AccessToken CreateToken(Employee doctor, List<Role> role)
         {
             _accessTokenExpiration = DateTime.Now.AddDays(_tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
@@ -39,7 +39,7 @@ namespace FinalProject.Core.Utilities.Security.JWT
 
         }
 
-        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Doctor doctor,
+        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Employee doctor,
             SigningCredentials signingCredentials, List<Role> role)
         {
             var jwt = new JwtSecurityToken(
@@ -53,7 +53,7 @@ namespace FinalProject.Core.Utilities.Security.JWT
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(Doctor doctor, List<Role> role)
+        private IEnumerable<Claim> SetClaims(Employee doctor, List<Role> role)
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifier(doctor.Id.ToString());

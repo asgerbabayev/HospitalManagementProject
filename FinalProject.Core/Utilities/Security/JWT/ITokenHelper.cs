@@ -8,6 +8,6 @@ namespace FinalProject.Core.Utilities.Security.JWT
 {
     public interface ITokenHelper
     {
-        AccessToken CreateToken(Doctor doctor, List<Role> role);
+        AccessToken CreateToken(Employee doctor, List<Role> role);
     }
 }

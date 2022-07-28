@@ -11,33 +11,33 @@ namespace FinalProject.Api.Controllers
     [Route("[controller]")]
     [ApiController]
     [Authorize(Roles = "Admin")]
-    public class DoctorController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
-        private readonly IDoctorService _doctorService;
-        public DoctorController(IDoctorService doctorService) => _doctorService = doctorService;
+        private readonly IEmployeeService _employeeService;
+        public EmployeeController(IEmployeeService employeeService) => _employeeService = employeeService;
 
         [HttpPost]
-        public IActionResult Add(DoctorDto doctor)
+        public IActionResult Add(EmployeeDto employee)
         {
             DoctorValidator rules = new DoctorValidator();
-            ValidationResult result = rules.Validate(doctor);
+            ValidationResult result = rules.Validate(employee);
             if (!result.IsValid)
                 foreach (var e in result.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
-            var doctorToAdd = _doctorService.Add(doctor);
+            var doctorToAdd = _employeeService.Add(employee);
             if (!doctorToAdd.Success) return StatusCode(StatusCodes.Status400BadRequest, doctorToAdd.Message);
             return Ok(doctorToAdd);
         }
 
         [HttpPut]
-        public IActionResult Update(DoctorDto doctor)
+        public IActionResult Update(EmployeeDto employee)
         {
             DoctorValidator rules = new DoctorValidator();
-            ValidationResult result = rules.Validate(doctor);
+            ValidationResult result = rules.Validate(employee);
             if (!result.IsValid)
                 foreach (var e in result.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
-            var doctorToAdd = _doctorService.Update(doctor);
+            var doctorToAdd = _employeeService.Update(employee);
             if (!doctorToAdd.Success) return StatusCode(StatusCodes.Status400BadRequest, doctorToAdd.Message);
             return Ok(doctorToAdd);
         }
@@ -45,7 +45,7 @@ namespace FinalProject.Api.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var result = _doctorService.Delete(id);
+            var result = _employeeService.Delete(id);
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
@@ -53,19 +53,17 @@ namespace FinalProject.Api.Controllers
         [HttpGet("all")]
         public IActionResult GetAll()
         {
-            var result = _doctorService.GetAll();
-            if (!result.Success) return Ok(result);
+            var result = _employeeService.GetAll();
+            if (result.Success) return Ok(result);
             return BadRequest(result);
         }
 
         [HttpPost("confirmation/{email}")]
-        [AllowAnonymous]
         public ContentResult Confirmation(string email)
         {
-            var result = _doctorService.CheckIsConfirmedAccount(email);
-            if (!result.Success) return Content("<h1 style='font-size: 75px; margin-top:250px; text-align: center; color:rgb(15, 166, 226)'>Your Account Already Verified.</h1>", "text/html");
-            return Content(_doctorService.ConfirmationMessage(), "text/html");
+            var result = _employeeService.CheckIsConfirmedAccount(email);
+            if (!result.Success) return Content("<h1 style='font-size: 55px; margin-top:250px; text-align: center; color:rgb(15, 166, 226)'>Your Account Already Verified.</h1>", "text/html");
+            return Content(_employeeService.ConfirmationMessage(), "text/html");
         }
-
     }
 }

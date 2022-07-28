@@ -7,7 +7,7 @@ namespace FinalProject.Entities.Concrete
 {
     public class Patient : IEntity
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string IdentificationNumber { get; set; }
@@ -17,9 +17,5 @@ namespace FinalProject.Entities.Concrete
         public int TaxNo { get; set; }
         public int RegistryId { get; set; }
         public Registry Registry { get; set; }
-        public int ClinicId { get; set; }
-        public Clinic Clinic { get; set; }
-        public int RoomId { get; set; }
-        public Room Room { get; set; }
     }
 }

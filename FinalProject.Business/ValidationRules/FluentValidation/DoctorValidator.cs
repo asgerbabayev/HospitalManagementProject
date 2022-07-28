@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace FinalProject.Business.ValidationRules.FluentValidation
 {
-    public class DoctorValidator : AbstractValidator<DoctorDto>
+    public class DoctorValidator : AbstractValidator<EmployeeDto>
     {
         public DoctorValidator()
         {

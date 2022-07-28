@@ -14,10 +14,10 @@ namespace FinalProject.DataAccess.Concrete.DataContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Doctor>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
+            modelBuilder.Entity<Employee>(entity => { entity.HasIndex(e => e.Email).IsUnique(); });
         }
 
-        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Address> Addresses { get; set; }
@@ -28,5 +28,8 @@ namespace FinalProject.DataAccess.Concrete.DataContext
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Registry> Registries { get; set; }
+        public DbSet<Control> Controls { get; set; }
+        public DbSet<Analysis> Analyses { get; set; }
+        public DbSet<ControlAnalysis> ControlAnalyses { get; set; }
     }
 }

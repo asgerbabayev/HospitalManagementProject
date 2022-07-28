@@ -42,15 +42,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(MedicineDto medicineDto)
         {
-            Medicine medicine = new Medicine
-            {
-                Id = medicineDto.Id,
-                Name = medicineDto.Name,
-                BarcodeNumber = medicineDto.BarcodeNumber,
-                Type = medicineDto.Type,
-                Count = medicineDto.Count
-            };
-            _medicineDal.Update(medicine);
+            _medicineDal.Update(_mapper.Map<Medicine>(medicineDto));
             return new Result(true, Messages.MedicineUpdated);
         }
 

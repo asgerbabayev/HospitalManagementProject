@@ -16,8 +16,8 @@ namespace FinalProject.Business.DependencyResolvers
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<DoctorManager>().As<IDoctorService>().SingleInstance();
-            builder.RegisterType<EfDoctorDal>().As<IDoctorDal>().SingleInstance();
+            builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
+            builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
             builder.RegisterType<ClinicManager>().As<IClinicService>().SingleInstance();
             builder.RegisterType<EfClinicDal>().As<IClinicDal>().SingleInstance();
@@ -33,6 +33,27 @@ namespace FinalProject.Business.DependencyResolvers
 
             builder.RegisterType<StockManager>().As<IStockService>().SingleInstance();
             builder.RegisterType<EfStockDal>().As<IStockDal>().SingleInstance();
+            
+            builder.RegisterType<RegistryManager>().As<IRegistryService>().SingleInstance();
+            builder.RegisterType<EfRegistryDal>().As<IRegistryDal>().SingleInstance();
+
+            builder.RegisterType<PatientManager>().As<IPatientService>().SingleInstance();
+            builder.RegisterType<EfPatientDal>().As<IPatientDal>().SingleInstance();
+
+            builder.RegisterType<MaterialManager>().As<IMaterialService>().SingleInstance();
+            builder.RegisterType<EfMaterialDal>().As<IMaterialDal>().SingleInstance();
+
+            builder.RegisterType<PrescriptionManager>().As<IPrescriptionService>().SingleInstance();
+            builder.RegisterType<EfPrescriptionDal>().As<IPrescriptionDal>().SingleInstance();
+
+            builder.RegisterType<ControlManager>().As<IControlService>().SingleInstance();
+            builder.RegisterType<EfControlDal>().As<IControlDal>().SingleInstance();
+
+            builder.RegisterType<AnalysisManager>().As<IAnalysisService>().SingleInstance();
+            builder.RegisterType<EfAnalysisDal>().As<IAnalysisDal>().SingleInstance();
+
+            builder.RegisterType<ControlAnalysisManager>().As<IControlAnalysisService>().SingleInstance();
+            builder.RegisterType<EfControlAnalysisDal>().As<IControlAnalysisDal>().SingleInstance();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
         }

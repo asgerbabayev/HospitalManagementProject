@@ -1,11 +1,12 @@
 ﻿using FinalProject.Core.DataAccess;
 using FinalProject.Entities.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace FinalProject.DataAccess.Abstract
 {
-    public interface IDoctorDal : IEntityRepository<Doctor>
+    public interface IAnalysisDal : IEntityRepository<Analysis>
     {
-        List<Role> GetClaims(Doctor doctor);
     }
 }

@@ -12,7 +12,7 @@ namespace FinalProject.Entities.Concrete
         public Medicine Medicine { get; set; }
         public int RegistryId { get; set; }
         public Registry Registry { get; set; }
-        public string UsageTime { get; set; }
+        public string Description { get; set; }
         public int DailyDose { get; set; }
     }
 }

@@ -42,14 +42,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(RoomDto roomDto)
         {
-            Room room = new Room
-            {
-                Id = roomDto.Id,
-                Number = roomDto.Number,
-                Type = roomDto.Type,
-                Capacity = roomDto.Capacity
-            };
-            _roomDal.Update(room);
+            _roomDal.Update(_mapper.Map<Room>(roomDto));
             return new Result(true, Messages.RoomUpdated);
         }
 

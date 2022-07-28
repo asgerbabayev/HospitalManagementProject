@@ -11,7 +11,7 @@ namespace FinalProject.Business.Abstract
     {
         IResult Add(AddressDto addressDto);
         IResult Update(AddressDto addressDto);
-        IResult Delete(int Id);
+        IResult Delete(int id);
         IDataResult<List<Address>> GetAll();
     }
 }

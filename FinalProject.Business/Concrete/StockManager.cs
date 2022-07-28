@@ -34,14 +34,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(StockDto stockDto)
         {
-            Stock stock = new Stock
-            {
-                Id = stockDto.Id,
-                Name = stockDto.Name,
-                Price = stockDto.Price,
-                Count = stockDto.Count
-            };
-            _stockDal.Update(stock);
+            _stockDal.Update(_mapper.Map<Stock>(stockDto));
             return new Result(true, Messages.StockUpdated);
         }
         public IResult Delete(int id)

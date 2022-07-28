@@ -44,13 +44,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(ClinicDto clinicUpdateDto)
         {
-            Clinic clinic = new Clinic
-            {
-                Id = clinicUpdateDto.Id,
-                Name = clinicUpdateDto.Name,
-                PhoneNumber = clinicUpdateDto.PhoneNumber
-            };
-            _clinicDal.Update(clinic);
+            _clinicDal.Update(_mapper.Map<Clinic>(clinicUpdateDto));
             return new Result(true, Messages.ClinicUpdated);
         }
     }

@@ -42,15 +42,7 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(AddressDto addressUpdateDto)
         {
-            Address address = new Address
-            {
-                Id = addressUpdateDto.Id,
-                City = addressUpdateDto.City,
-                Region = addressUpdateDto.Region,
-                Street = addressUpdateDto.Street,
-                ApartmentNumber = addressUpdateDto.ApartmentNumber
-            };
-            _addressDal.Update(address);
+            _addressDal.Update(_mapper.Map<Address>(addressUpdateDto));
             return new Result(true, Messages.AddressUpdated);
         }
 

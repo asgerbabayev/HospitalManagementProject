@@ -8,14 +8,14 @@ using System.Text;
 
 namespace FinalProject.Business.Abstract
 {
-    public interface IDoctorService
+    public interface IEmployeeService
     {
-        IResult Add(DoctorDto doctorDto);
-        IResult Update(DoctorDto doctorDto);
+        IResult Add(EmployeeDto employeeDto);
+        IResult Update(EmployeeDto employeeDto);
         IResult Delete(int Id);
-        IDataResult<List<Doctor>> GetAll();
-        IDataResult<Doctor> Login(LoginDto loginDto);
-        IDataResult<AccessToken> CreateAccessToken(Doctor doctor);
+        IDataResult<List<Employee>> GetAll();
+        IDataResult<Employee> Login(LoginDto loginDto);
+        IDataResult<AccessToken> CreateAccessToken(Employee employee);
         IResult CheckIsConfirmedAccount(string email);
         string ConfirmationMessage();
     }

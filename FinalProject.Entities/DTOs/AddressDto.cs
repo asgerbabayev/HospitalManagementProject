@@ -7,7 +7,7 @@ namespace FinalProject.Entities.DTOs
 {
     public class AddressDto : IDto
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string City { get; set; }
         public string Region { get; set; }
         public string Street { get; set; }

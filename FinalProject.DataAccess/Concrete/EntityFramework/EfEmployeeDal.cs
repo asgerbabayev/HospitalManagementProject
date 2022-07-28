@@ -6,14 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 namespace FinalProject.DataAccess.Concrete.EntityFramework
 {
-    public class EfDoctorDal : EfEntityRepositoryBase<Doctor, Context>, IDoctorDal
+    public class EfEmployeeDal : EfEntityRepositoryBase<Employee, Context>, IEmployeeDal
     {
-        public List<Role> GetClaims(Doctor doctor)
+        public List<Role> GetClaims(Employee employee)
         {
             using (var context = new Context())
             {
                 var result = from r in context.Roles
-                             join ru in context.Roles on doctor.RoleId equals ru.Id
+                             join ru in context.Roles on employee.RoleId equals ru.Id
                              select new Role
                              {
                                  Id = ru.Id,

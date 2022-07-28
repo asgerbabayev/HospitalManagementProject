@@ -1,10 +1,10 @@
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.deps.json
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.AssemblyReference.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfoInputs.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfo.cs
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.CoreCompileInputs.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.AssemblyReference.cache
