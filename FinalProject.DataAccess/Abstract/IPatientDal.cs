@@ -8,5 +8,6 @@ namespace FinalProject.DataAccess.Abstract
 {
     public interface IPatientDal : IEntityRepository<Patient>
     {
+        List<Patient> GetPatientsWithRegistry();
     }
 }

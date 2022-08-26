@@ -10,9 +10,8 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
     {
         public RoomValidator()
         {
-            RuleFor(n => n.Number).NotEmpty().MinimumLength(1);
-            RuleFor(n => n.Capacity).NotEmpty();
-            RuleFor(n => n.Type).NotEmpty().MinimumLength(1);
+            RuleFor(n => Convert.ToInt32(n.Number)).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
+            RuleFor(n => n.Capacity).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
         }
     }
 }

@@ -13,5 +13,6 @@ namespace FinalProject.Business.Abstract
         IResult Update(RoomDto roomDto);
         IResult Delete(int id);
         IDataResult<List<Room>> GetAll();
+        IDataResult<Room> GetById(int id);
     }
 }

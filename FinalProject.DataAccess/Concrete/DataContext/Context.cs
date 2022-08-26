@@ -19,8 +19,6 @@ namespace FinalProject.DataAccess.Concrete.DataContext
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<Clinic> Clinics { get; set; }
-        public DbSet<Address> Addresses { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<Prescription> Prescriptions { get; set; }

@@ -45,10 +45,11 @@ namespace FinalProject.Business.Concrete
             _roomDal.Update(_mapper.Map<Room>(roomDto));
             return new Result(true, Messages.RoomUpdated);
         }
-
         public IDataResult<Room> GetById(int id)
         {
-            return new SuccessDataResult<Room>(_roomDal.Get(x => x.Id == id), Messages.RoomGeted);
+            var result = _roomDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Room>(Messages.RoomGeted);
+            return new SuccessDataResult<Room>(result);
         }
     }
 }

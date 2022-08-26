@@ -8,12 +8,16 @@ namespace FinalProject.Business.Constants
     {
         public static string LoggedIn = "Giriş edildi";
         public static string TokenCreated = "Token Created";
+        public static string TokenVerified = "Token Verified";
         public static string PasswordChangedSuccessfully = "Şifrə dəyişdirildi";
         public static string IdentificationNumberAlreadyHave = "Bu seriya nömrəsi sistemdə mövcuddur";
         public static string PhoneNumberAlreadyHave = "Bu telefon nömrəsi sistemdə mövcuddur";
         public static string EmailAlreadyHave = "Bu email sistemdə mövcuddur";
-        public static string EmailIsNotConfirmed = "Hesabınızın doğrulanması üçün mail adresinizə göndərilən linkə keçid edin. Mail görünmürsə spam qutusunu yoxlamağı unutmayı";
-        public static string InvalidCredentials = "Invalid Credentials";
+        public static string EmailIsNotConfirmed = "Hesabınızın doğrulanması üçün mail adresinizə göndərilən linkə keçid edin. Mail görünmürsə spam qutusunu yoxlamağı unutmayın";
+        public static string InvalidCredentials = "Email və ya şifrə yanlışdır";
+        public static string PasswordResetEmailSended = "Şifrə sıfırlama maili göndərildi";
+        public static string InvalidEmail= "Bu mail ünvanı sistemdə mövcud deyil";
+        public static string InvalidId= "Bu ID-li istifadəçi mövcud deyil";
 
         public static string EmployeeAdded = "İşçi əlavə edildi";
         public static string EmployeeDeleted = "İşçi silindi";
@@ -44,8 +48,8 @@ namespace FinalProject.Business.Constants
         public static string RoomListed = "Otaqların siyahısı";
         public static string RoomGeted = "Otaq bazadan gətirildi";
 
-        public static string StockAdded = "Ambar əlavə edildi";
-        public static string StockDeleted = "Ambar silindi";
+        public static string StockAdded = "Ambara əlavə edildi";
+        public static string StockDeleted = "Ambardan silindi";
         public static string StockUpdated = "Ambar dəyişiklikləri saxlanıldı";
         public static string StockListed = "Ambarların siyahısı";
         public static string StockGeted = "Ambar bazadan gətirildi";

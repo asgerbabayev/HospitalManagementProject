@@ -11,8 +11,8 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
         public StockValidator()
         {
             RuleFor(n => n.Name).NotEmpty().MinimumLength(1);
-            RuleFor(n => n.Price).NotEmpty();
-            RuleFor(n => n.Count).NotEmpty();
+            RuleFor(n => n.Price).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin"); ;
+            RuleFor(n => n.Count).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin"); ;
         }
     }
 }

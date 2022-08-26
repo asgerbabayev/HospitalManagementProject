@@ -11,8 +11,8 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
         public MaterialValidator()
         {
             RuleFor(x=>x.StockId).NotEmpty();
-            RuleFor(x=>x.RegistryId).NotEmpty();
-            RuleFor(x=>x.Count).NotEmpty();
+            RuleFor(x=>x.RegistryId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
+            RuleFor(x=>x.Count).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
         }
     }
 }

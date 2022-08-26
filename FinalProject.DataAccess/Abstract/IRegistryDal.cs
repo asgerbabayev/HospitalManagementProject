@@ -8,5 +8,6 @@ namespace FinalProject.DataAccess.Abstract
 {
     public interface IRegistryDal : IEntityRepository<Registry>
     {
+        List<Registry> GetAllData();
     }
 }

@@ -37,7 +37,7 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<List<Patient>> GetAll()
         {
-            return new SuccessDataResult<List<Patient>>(_patientDal.GetAll(), Messages.PatientListed);
+            return new SuccessDataResult<List<Patient>>(_patientDal.GetPatientsWithRegistry(), Messages.PatientListed);
         }
 
         public IResult Update(PatientDto patientDto)
@@ -45,9 +45,12 @@ namespace FinalProject.Business.Concrete
             _patientDal.Update(_mapper.Map<Patient>(patientDto));
             return new Result(true, Messages.PatientUpdated);
         }
-        public IDataResult<Patient> GetById(int Id)
+        public IDataResult<Patient> GetById(int id)
         {
-            return new SuccessDataResult<Patient>(_patientDal.Get(f => f.Id == Id), Messages.PatientGeted);
+            var result = _patientDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Patient>(Messages.RoomGeted);
+            return new SuccessDataResult<Patient>(result);
         }
+
     }
 }

@@ -24,6 +24,9 @@ namespace FinalProject.Business.Concrete
 
         public IResult Add(RegistryDto registryDto)
         {
+            registryDto.PatientRegistryDate = DateTime.UtcNow;
+            string guid = Guid.NewGuid().ToString("N");
+            registryDto.Number = guid.Substring(0,10);
             _registryDal.Add(_mapper.Map<Registry>(registryDto));
             return new Result(true, Messages.RegistryAdded);
         }
@@ -46,8 +49,16 @@ namespace FinalProject.Business.Concrete
 
         public IResult Update(RegistryDto registryDto)
         {
+            var data = GetById(registryDto.Id);
+            registryDto.Number = data.Data.Number;
+            registryDto.PatientRegistryDate = data.Data.PatientRegistryDate;
             _registryDal.Update(_mapper.Map<Registry>(registryDto));
             return new Result(true, Messages.RegistryUpdated);
+        }
+
+        public IDataResult<List<Registry>> GetAllData()
+        {
+            return new SuccessDataResult<List<Registry>>(_registryDal.GetAllData(), Messages.RegistryListed);
         }
     }
 }

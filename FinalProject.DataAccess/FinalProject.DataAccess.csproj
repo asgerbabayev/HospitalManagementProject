@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20220725234322_MedicineTableFixed.Designer.cs" />
     <Compile Remove="Migrations\20220725234450_MedicineTableFixed.cs" />
     <Compile Remove="Migrations\20220725234450_MedicineTableFixed.Designer.cs" />
+    <Compile Remove="Migrations\20220825173125_AddedNumberColumnRegistryTable.cs" />
+    <Compile Remove="Migrations\20220825173125_AddedNumberColumnRegistryTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

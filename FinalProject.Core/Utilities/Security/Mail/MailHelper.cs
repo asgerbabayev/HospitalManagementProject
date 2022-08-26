@@ -37,24 +37,45 @@ namespace FinalProject.Core.Utilities.Security.Mail
             }
         }
 
-        public string MailContent(string email)
+        public string ConfirmationMailContent(string email)
         {
             email = HashString.Encode(email);
-            string url = $"https://localhost:44398/doctor/confirmation/{email}";
-            return string.Format(@$"<div style='text-align: center; margin-top:50px'>
-                                          <h1 style='text-align: center; color:rgb(15, 166, 226)'>Welcome to Hospital Management System</h1>
-                                          <h3 style='text-align: center; color:rgb(37, 113, 143)'>Click below button for verify your Email</h3>
-                                          <form method='post' action='{url}' style = 'display: inline;'>
-                                          <button type='submit' id='btnSend' style='padding: 10px 100px;
-                                                                                    cursor: pointer;
-                                                                                    border: none;
-                                                                                    font-size: 18px;
-                                                                                    background-color: rgb(51, 93, 110);
-                                                                                    color: white;
-                                                                                    border-radius: 20px;'>
-                                                                      Confirm Mail
-                                         </button>
-                                      </form>
+            string url = $"https://localhost:44398/employee/confirmation/{email}";
+            return string.Format(@$"<div style='text-align: center; margin-top:50px; height:100vh;'>
+                                          <h1 style='text-align: center; color:rgb(15, 166, 226)'>Xəstəxana İdarəetmə Sistemi</h1>
+                                          <h3 style='text-align: center; color:rgb(37, 113, 143)'>Aşağıdakı düyməyə klikləyib hesabınızı aktivləşdirin.</h3>
+                                          <a href='{url}' style='padding: 10px 100px;
+                                                                 text-decoration:none;
+                                                                 cursor: pointer;
+                                                                 border: none;
+                                                                 font-size: 18px;
+                                                                 background-color: rgb(51, 93, 110);
+                                                                 color: white;
+                                                                 border-radius: 20px;'>
+                                                   Aktivləşdir
+                                         </a>
+                                    </div>
+
+", email);
+        }
+
+        public string ResetPasswordMailContent(string email)
+        {
+            email = HashString.Encode(email);
+            string url = $"http://localhost:3000/resetpassword/?email={email}";
+            return string.Format(@$"<div style='text-align: center; margin-top:50px; height:100vh;'>
+                                          <h1 style='text-align: center; color:rgb(15, 166, 226)'>Xəstəxana İdarəetmə Sistemi</h1>
+                                          <h3 style='text-align: center; color:rgb(37, 113, 143)'>Aşağıdakı düyməyə klikləyib şifrənizi sıfırlayın.</h3>
+                                          <a href='{url}' style='padding: 10px 100px;
+                                                                 text-decoration:none;
+                                                                 cursor: pointer;
+                                                                 border: none;
+                                                                 font-size: 18px;
+                                                                 background-color: rgb(51, 93, 110);
+                                                                 color: white;
+                                                                 border-radius: 20px;'>
+                                                   Şifrəni sıfırla
+                                         </a>
                                     </div>
 
 ", email);

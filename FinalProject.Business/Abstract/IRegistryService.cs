@@ -12,6 +12,8 @@ namespace FinalProject.Business.Abstract
         IResult Add(RegistryDto registryDto);
         IResult Update(RegistryDto registryDto);
         IResult Delete(int Id);
+        IDataResult<Registry> GetById(int id);
         IDataResult<List<Registry>> GetAll();
+        IDataResult<List<Registry>> GetAllData();
     }
 }

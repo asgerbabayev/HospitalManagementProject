@@ -13,5 +13,6 @@ namespace FinalProject.Business.Abstract
         IResult Update(MaterialDto materialDto);
         IResult Delete(int id);
         IDataResult<List<Material>> GetAll();
+        IDataResult<Material> GetById(int id);
     }
 }

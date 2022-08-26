@@ -14,10 +14,9 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
             RuleFor(x => x.Name).NotEmpty().MinimumLength(2);
             RuleFor(x => x.Surname).NotEmpty().MinimumLength(2);
             RuleFor(x => x.BirthDate).NotEmpty();
-            RuleFor(x => x.TaxNo).NotEmpty();
             RuleFor(x => x.IdentificationNumber).NotEmpty();
             RuleFor(x => x.Gender).NotEmpty();
-            RuleFor(x => x.RegistryId).NotEmpty();
+            RuleFor(x => x.RegistryId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
             RuleFor(p => p.PhoneNumber).NotEmpty().WithMessage("Mobil nömrə məcburidir").Matches(new Regex(@"^(\+?994|0)(77|51|50|55|70|40|60|12)(\-|)(\d){3}(\-|)(\d){2}(\-|)(\d){2}$")).WithMessage("Mobil nömrəni düzgün formatda yazın");
         }
     }

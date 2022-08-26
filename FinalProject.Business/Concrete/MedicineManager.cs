@@ -37,7 +37,7 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<List<Medicine>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Medicine>>(_medicineDal.GetAll(), Messages.MedicineListed);
         }
 
         public IResult Update(MedicineDto medicineDto)
@@ -48,7 +48,9 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<Medicine> GetById(int id)
         {
-            return new SuccessDataResult<Medicine>(_medicineDal.Get(f => f.Id == id), Messages.MedicineGeted);
+            var result = _medicineDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Medicine>(Messages.MedicineGeted);
+            return new SuccessDataResult<Medicine>(result);
         }
     }
 }

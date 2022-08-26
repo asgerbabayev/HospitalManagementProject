@@ -11,7 +11,7 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
         public ControlValidator()
         {
             RuleFor(x=>x.Complaint).NotEmpty();
-            RuleFor(x=>x.RegistryId).NotEmpty();
+            RuleFor(x=>x.RegistryId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
             RuleFor(x=>x.Date).NotEmpty();
             RuleFor(x=>x.Diagnosis).NotEmpty();
             RuleFor(x=>x.Result).NotEmpty();

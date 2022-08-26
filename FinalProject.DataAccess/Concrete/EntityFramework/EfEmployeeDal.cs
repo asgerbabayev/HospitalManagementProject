@@ -2,6 +2,7 @@
 using FinalProject.DataAccess.Abstract;
 using FinalProject.DataAccess.Concrete.DataContext;
 using FinalProject.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 namespace FinalProject.DataAccess.Concrete.EntityFramework
@@ -21,6 +22,22 @@ namespace FinalProject.DataAccess.Concrete.EntityFramework
                              };
                 return result.ToList();
 
+            }
+        }
+
+        public List<Employee> GetEmployeesWithRole()
+        {
+            using (var context = new Context())
+            {
+                return context.Employees.Include(r => r.Role).Where(x=>x.RoleId != 1).ToList();
+            }
+        }
+
+        public List<Employee> GetAllDoctor()
+        {
+            using (var context = new Context())
+            {
+                return context.Employees.Include(r => r.Role).Where(x => x.RoleId == 2).ToList();
             }
         }
     }

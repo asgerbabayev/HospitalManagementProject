@@ -34,10 +34,6 @@ namespace FinalProject.Business.Concrete
             _materialDal.Delete(material);
             return new Result(true, Messages.MaterialDeleted);
         }
-        public IDataResult<Material> GetById(int id)
-        {
-            return new SuccessDataResult<Material>(_materialDal.Get(x => x.Id == id), Messages.MaterialGeted);
-        }
         public IDataResult<List<Material>> GetAll()
         {
             return new SuccessDataResult<List<Material>>(_materialDal.GetAll(), Messages.MaterialListed);
@@ -47,6 +43,13 @@ namespace FinalProject.Business.Concrete
         {
             _materialDal.Update(_mapper.Map<Material>(materialDto));
             return new Result(true, Messages.AddressUpdated);
+        }
+
+        public IDataResult<Material> GetById(int id)
+        {
+            var result = _materialDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Material>(Messages.MedicineGeted);
+            return new SuccessDataResult<Material>(result);
         }
     }
 }

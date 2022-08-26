@@ -1,5 +1,6 @@
 ﻿using FinalProject.Entities.DTOs;
 using FluentValidation;
+using System;
 
 namespace FinalProject.Business.ValidationRules.FluentValidation
 {
@@ -7,12 +8,8 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
     {
         public RegistryValidator()
         {
-            RuleFor(x => x.ClinicId).NotEmpty();
-            RuleFor(x => x.DoctorId).NotEmpty();
-            RuleFor(x => x.RoomId).NotEmpty();
-            RuleFor(x => x.PatientRegistryDate).NotEmpty();
-            RuleFor(x => x.PatientLeavingDate).NotEmpty();
-            RuleFor(x => x.TotalPrice).NotEmpty();
+            RuleFor(x => x.EmployeeId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
+            RuleFor(x => x.RoomId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
         }
     }
 }

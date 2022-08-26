@@ -7,5 +7,7 @@ namespace FinalProject.DataAccess.Abstract
     public interface IEmployeeDal : IEntityRepository<Employee>
     {
         List<Role> GetClaims(Employee employee);
+        List<Employee> GetEmployeesWithRole();
+        List<Employee> GetAllDoctor();
     }
 }

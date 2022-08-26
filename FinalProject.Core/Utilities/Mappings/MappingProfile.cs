@@ -15,9 +15,6 @@ namespace FinalProject.Core.Utilities.Mappings
 
             CreateMap<Employee, EmployeeDto>().ReverseMap();
 
-            CreateMap<Clinic, ClinicDto>().ReverseMap();
-
-            CreateMap<Address, AddressDto>().ReverseMap();
 
             CreateMap<Medicine, MedicineDto>().ReverseMap();
 

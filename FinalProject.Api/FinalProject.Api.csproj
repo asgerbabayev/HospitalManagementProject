@@ -7,11 +7,13 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.26">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +21,8 @@
     <ProjectReference Include="..\FinalProject.Core\FinalProject.Core.csproj" />
     <ProjectReference Include="..\FinalProject.DataAccess\FinalProject.DataAccess.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json-schema.org/draft-04/schema" /></VisualStudio></ProjectExtensions>
 
 
 </Project>

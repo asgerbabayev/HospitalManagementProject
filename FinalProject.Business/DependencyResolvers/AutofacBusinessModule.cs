@@ -19,12 +19,6 @@ namespace FinalProject.Business.DependencyResolvers
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
             builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
-            builder.RegisterType<ClinicManager>().As<IClinicService>().SingleInstance();
-            builder.RegisterType<EfClinicDal>().As<IClinicDal>().SingleInstance();
-
-            builder.RegisterType<AddressManager>().As<IAddressService>().SingleInstance();
-            builder.RegisterType<EfAddressDal>().As<IAddressDal>().SingleInstance();
-
             builder.RegisterType<MedicineManager>().As<IMedicineService>().SingleInstance();
             builder.RegisterType<EfMedicineDal>().As<IMedicineDal>().SingleInstance();
 
@@ -55,6 +49,7 @@ namespace FinalProject.Business.DependencyResolvers
             builder.RegisterType<ControlAnalysisManager>().As<IControlAnalysisService>().SingleInstance();
             builder.RegisterType<EfControlAnalysisDal>().As<IControlAnalysisDal>().SingleInstance();
 
+            builder.RegisterType<JwtManager>().As<IJwtService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
         }
     }

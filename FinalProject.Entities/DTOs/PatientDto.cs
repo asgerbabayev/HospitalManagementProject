@@ -14,7 +14,7 @@ namespace FinalProject.Entities.DTOs
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
-        public int TaxNo { get; set; }
+        public string Address { get; set; }
         public int RegistryId { get; set; }
     }
 }

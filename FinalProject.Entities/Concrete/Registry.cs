@@ -8,10 +8,9 @@ namespace FinalProject.Entities.Concrete
     public class Registry : IEntity
     {
         public int Id { get; set; }
-        public int ClinicId { get; set; }
-        public Clinic Clinic { get; set; }
-        public int DoctorId { get; set; }
-        public Employee Doctor { get; set; }
+        public string Number { get; set; }
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
         public int RoomId { get; set; }
         public Room Room { get; set; }
         public decimal TotalPrice { get; set; }

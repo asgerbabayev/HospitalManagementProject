@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 
 namespace FinalProject.Core.Utilities.Security.JWT
 {
@@ -22,12 +23,13 @@ namespace FinalProject.Core.Utilities.Security.JWT
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
         }
-        public AccessToken CreateToken(Employee doctor, List<Role> role)
+
+        public AccessToken CreateToken(Employee employee, List<Role> role)
         {
-            _accessTokenExpiration = DateTime.Now.AddDays(_tokenOptions.AccessTokenExpiration);
+            _accessTokenExpiration = DateTime.Now.AddHours(_tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-            var jwt = CreateJwtSecurityToken(_tokenOptions, doctor, signingCredentials, role);
+            var jwt = CreateJwtSecurityToken(_tokenOptions, employee, signingCredentials, role);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
 
@@ -36,31 +38,47 @@ namespace FinalProject.Core.Utilities.Security.JWT
                 Token = token,
                 Expiration = _accessTokenExpiration
             };
-
         }
 
-        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Employee doctor,
+        public JwtSecurityToken Verify(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_tokenOptions.SecurityKey);
+            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            }, out SecurityToken validatedToken);
+            return (JwtSecurityToken)validatedToken;
+        }
+
+        public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Employee employee,
             SigningCredentials signingCredentials, List<Role> role)
         {
             var jwt = new JwtSecurityToken(
-                issuer: tokenOptions.Issuer,
-                audience: tokenOptions.Audience,
+                issuer: employee.Id.ToString(),
+                audience: null,
                 expires: _accessTokenExpiration,
                 notBefore: DateTime.Now,
-                claims: SetClaims(doctor, role),
+                claims: SetClaims(employee, role),
                 signingCredentials: signingCredentials
             );
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(Employee doctor, List<Role> role)
+        private IEnumerable<Claim> SetClaims(Employee employee, List<Role> role)
         {
             var claims = new List<Claim>();
-            claims.AddNameIdentifier(doctor.Id.ToString());
-            claims.AddEmail(doctor.Email);
+            claims.AddNameIdentifier(employee.Id.ToString());
+            claims.AddEmail(employee.Email);
             claims.AddRoles(role.Select(u => u.Name).ToArray());
 
             return claims;
         }
+
     }
 }

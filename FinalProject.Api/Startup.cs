@@ -4,14 +4,17 @@ using FinalProject.Core.Utilities.IoC;
 using FinalProject.Core.Utilities.Security.Encryption;
 using FinalProject.Core.Utilities.Security.JWT;
 using FinalProject.Core.Utilities.Security.Mail;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Threading.Tasks;
 
 namespace FinalProject.Api
 {
@@ -31,9 +34,10 @@ namespace FinalProject.Api
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {
                 builder
+                .WithOrigins(new[] { "http://localhost:3000" })
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowAnyOrigin();
+                .AllowCredentials();
             }));
             services.AddDependencyResolvers(new ICoreModule[] {
                 new CoreModule()
@@ -41,6 +45,7 @@ namespace FinalProject.Api
             var emailConfig = Configuration.GetSection("EmailConfiguration")
                    .Get<EmailConfiguration>();
             services.AddSingleton(emailConfig);
+            services.AddHttpContextAccessor();
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -70,7 +75,7 @@ namespace FinalProject.Api
 
 
             app.UseCors("CorsPolicy");
-
+            app.UseCookiePolicy();
             app.UseHttpsRedirection();
 
             app.UseRouting();

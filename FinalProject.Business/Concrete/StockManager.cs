@@ -46,7 +46,9 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<Stock> GetById(int id)
         {
-            return new SuccessDataResult<Stock>(_stockDal.Get(x => x.Id == id), Messages.StockGeted);
+            var result = _stockDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Stock>(Messages.StockGeted);
+            return new SuccessDataResult<Stock>(result);
         }
 
     }

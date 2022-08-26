@@ -16,13 +16,8 @@ namespace FinalProject.Entities.DTOs
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
-        public string Collage { get; set; }
-        public string Position { get; set; }
-        public string Education { get; set; }
-        public string CertificateNo { get; set; }
-        public int ClinicId { get; set; }
-        public int RoleId { get; set; }
         public bool Status { get; set; }
         public bool EmailConfirmation { get; set; }
+        public int RoleId { get; set; }
     }
 }

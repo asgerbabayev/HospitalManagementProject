@@ -10,8 +10,8 @@ namespace FinalProject.Business.ValidationRules.FluentValidation
     {
         public ControlAnalysisValidator()
         {
-            RuleFor(x=>x.ControlId).NotEmpty();
-            RuleFor(x=>x.AnalysisId).NotEmpty();
+            RuleFor(x=>x.ControlId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
+            RuleFor(x=>x.AnalysisId).NotEmpty().Must(x => (x > 0)).WithMessage("0-dan böyük ədəd daxil edin");
         }
     }
 }

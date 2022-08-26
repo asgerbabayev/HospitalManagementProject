@@ -44,6 +44,8 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Npgsql.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\RestSharp.Serializers.Newtonsoft.Json.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
@@ -61,7 +63,6 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfoInputs.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.AssemblyInfo.cs
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.csproj.CoreCompileInputs.cache
-C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\staticwebassets\FinalProject.Api.StaticWebAssets.Manifest.cache
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.RazorTargetAssemblyInfo.cache
@@ -69,3 +70,7 @@ C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.dll
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.pdb
 C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.genruntimeconfig.cache
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\asger\Desktop\FinalProject.Api\FinalProject.Api\obj\Debug\netcoreapp3.1\FinalProject.Api.MvcApplicationPartsAssemblyInfo.cs

@@ -19,33 +19,9 @@ namespace FinalProject.DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "3.1.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("FinalProject.Entities.Concrete.Address", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("ApartmentNumber")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("City")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Region")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Addresses");
-                });
-
             modelBuilder.Entity("FinalProject.Entities.Concrete.Analysis", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -67,27 +43,9 @@ namespace FinalProject.DataAccess.Migrations
                     b.ToTable("Analyses");
                 });
 
-            modelBuilder.Entity("FinalProject.Entities.Concrete.Clinic", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Clinics");
-                });
-
             modelBuilder.Entity("FinalProject.Entities.Concrete.Control", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -116,7 +74,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.ControlAnalysis", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -138,25 +96,13 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Employee", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("CertificateNo")
-                        .HasColumnType("text");
-
-                    b.Property<int>("ClinicId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Collage")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Education")
-                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
@@ -176,9 +122,6 @@ namespace FinalProject.DataAccess.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
-                    b.Property<string>("Position")
-                        .HasColumnType("text");
-
                     b.Property<int>("RoleId")
                         .HasColumnType("integer");
 
@@ -190,8 +133,6 @@ namespace FinalProject.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClinicId");
-
                     b.HasIndex("Email")
                         .IsUnique();
 
@@ -202,7 +143,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Material", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -227,7 +168,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Medicine", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -251,10 +192,13 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Patient", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("timestamp without time zone");
@@ -276,9 +220,6 @@ namespace FinalProject.DataAccess.Migrations
 
                     b.Property<string>("Surname")
                         .HasColumnType("text");
-
-                    b.Property<int>("TaxNo")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -317,16 +258,16 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Registry", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("ClinicId")
+                    b.Property<int>("EmployeeId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("integer");
+                    b.Property<string>("Number")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("PatientLeavingDate")
                         .HasColumnType("timestamp without time zone");
@@ -345,9 +286,7 @@ namespace FinalProject.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClinicId");
-
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("EmployeeId");
 
                     b.HasIndex("RoomId");
 
@@ -371,7 +310,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Room", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -382,9 +321,6 @@ namespace FinalProject.DataAccess.Migrations
                     b.Property<string>("Number")
                         .HasColumnType("text");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
@@ -392,7 +328,7 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Stock", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -437,12 +373,6 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Employee", b =>
                 {
-                    b.HasOne("FinalProject.Entities.Concrete.Clinic", "Clinic")
-                        .WithMany()
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("FinalProject.Entities.Concrete.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
@@ -491,15 +421,9 @@ namespace FinalProject.DataAccess.Migrations
 
             modelBuilder.Entity("FinalProject.Entities.Concrete.Registry", b =>
                 {
-                    b.HasOne("FinalProject.Entities.Concrete.Clinic", "Clinic")
+                    b.HasOne("FinalProject.Entities.Concrete.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FinalProject.Entities.Concrete.Employee", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
