@@ -92,5 +92,18 @@ namespace FinalProject.Api.Controllers
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
+
+        [HttpGet("leave")]
+        public IActionResult Leave(int id)
+        {
+            var token = Request.Cookies["token"];
+            var verifyToken = _jwtService.VerifyToken(token);
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                           verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+                return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
+            var result = _registryService.LeavePatient(id);
+            if (result.Success) return Ok(result);
+            return BadRequest(result);
+        }
     }
 }

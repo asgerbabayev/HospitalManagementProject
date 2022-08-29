@@ -15,5 +15,6 @@ namespace FinalProject.Business.Abstract
         IDataResult<Registry> GetById(int id);
         IDataResult<List<Registry>> GetAll();
         IDataResult<List<Registry>> GetAllData();
+        IResult LeavePatient(int id);
     }
 }

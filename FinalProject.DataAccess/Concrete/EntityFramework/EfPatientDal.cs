@@ -16,7 +16,15 @@ namespace FinalProject.DataAccess.Concrete.EntityFramework
         {
             using (Context context = new Context())
             {
-                return context.Patients.Include(x=>x.Registry).ToList();
+                return context.Patients.Include(x => x.Registry).ToList();
+            }
+        }
+
+        public Patient GetPatient(int id)
+        {
+            using (Context context = new Context())
+            {
+                return context.Patients.Include(x => x.Registry).ThenInclude(y => y.Employee).Include(z => z.Registry).ThenInclude(d => d.Room).FirstOrDefault(x=>x.Id == id);
             }
         }
     }

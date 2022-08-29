@@ -47,10 +47,11 @@ namespace FinalProject.Business.Concrete
         }
         public IDataResult<Patient> GetById(int id)
         {
-            var result = _patientDal.Get(x => x.Id == id);
+            var result = _patientDal.GetPatient(id);
             if (result == null) return new ErrorDataResult<Patient>(Messages.RoomGeted);
             return new SuccessDataResult<Patient>(result);
         }
 
+        
     }
 }

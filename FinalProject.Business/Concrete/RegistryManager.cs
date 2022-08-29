@@ -60,5 +60,15 @@ namespace FinalProject.Business.Concrete
         {
             return new SuccessDataResult<List<Registry>>(_registryDal.GetAllData(), Messages.RegistryListed);
         }
+
+        public IResult LeavePatient(int id)
+        {
+            var result = _registryDal.Get(x=>x.Id == id);
+            if (result == null) return new ErrorResult();
+            result.PatientLeavingDate = DateTime.UtcNow;
+            result.Status = true;
+            _registryDal.Update(result);
+            return new SuccessResult("Xəstə çıxışı edildi");
+        }
     }
 }

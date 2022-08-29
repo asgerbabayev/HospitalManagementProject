@@ -14,5 +14,6 @@ namespace FinalProject.Business.Abstract
         IResult Delete(int Id);
         IDataResult<List<Patient>> GetAll();
         IDataResult<Patient> GetById(int id);
+        
     }
 }

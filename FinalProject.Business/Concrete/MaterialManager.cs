@@ -47,7 +47,7 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<Material> GetById(int id)
         {
-            var result = _materialDal.Get(x => x.Id == id);
+            var result = _materialDal.GetMaterial(id);
             if (result == null) return new ErrorDataResult<Material>(Messages.MedicineGeted);
             return new SuccessDataResult<Material>(result);
         }
