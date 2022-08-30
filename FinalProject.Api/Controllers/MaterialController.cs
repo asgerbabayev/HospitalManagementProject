@@ -32,7 +32,8 @@ namespace FinalProject.Api.Controllers
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin")
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
             var resultService = _materialService.Add(material);
             if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService.Message);
@@ -49,7 +50,8 @@ namespace FinalProject.Api.Controllers
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin")
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
             var resultService = _materialService.Update(material);
             if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService.Message);
@@ -61,7 +63,8 @@ namespace FinalProject.Api.Controllers
         {
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin")
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
             var result = _materialService.Delete(id);
             if (result.Success) return Ok(result);
@@ -73,7 +76,8 @@ namespace FinalProject.Api.Controllers
         {
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin")
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
             var result = _materialService.GetAll();
             if (result.Success) return Ok(result);

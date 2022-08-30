@@ -74,8 +74,7 @@ namespace FinalProject.Api.Controllers
         {
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            var role = verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value;
-            if (!verifyToken.Success || role != "Reception") return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
+            if (!verifyToken.Success) return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
             var result = _registryService.GetAllData();
             if (result.Success) return Ok(result);
             return BadRequest(result);

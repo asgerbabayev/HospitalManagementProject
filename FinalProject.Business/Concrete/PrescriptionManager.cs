@@ -7,6 +7,7 @@ using FinalProject.Entities.Concrete;
 using FinalProject.Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FinalProject.Business.Concrete
@@ -34,14 +35,10 @@ namespace FinalProject.Business.Concrete
             return new Result(true, Messages.PrescriptionDeleted);
         }
 
-        public IDataResult<Prescription> GetById(int id)
-        {
-            return new SuccessDataResult<Prescription>(_prescriptionDal.Get(x => x.Id == id), Messages.PrescriptionGeted);
-        }
 
         public IDataResult<List<Prescription>> GetAll()
         {
-            return new SuccessDataResult<List<Prescription>>(_prescriptionDal.GetAll(), Messages.PrescriptionListed);
+            return new SuccessDataResult<List<Prescription>>(_prescriptionDal.GetPrescriptionsWithRegistry(), Messages.PrescriptionListed);
         }
 
         public IResult Update(PrescriptionDto prescriptionDto)
@@ -49,5 +46,12 @@ namespace FinalProject.Business.Concrete
             _prescriptionDal.Update(_mapper.Map<Prescription>(prescriptionDto));
             return new Result(true, Messages.PrescriptionAdded);
         }
+        public IDataResult<Prescription> GetById(int id)
+        {
+            var result = _prescriptionDal.Get(x=>x.Id == id);
+            if (result == null) return new ErrorDataResult<Prescription>();
+            return new SuccessDataResult<Prescription>(result);
+        }
+
     }
 }

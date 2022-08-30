@@ -36,7 +36,7 @@ namespace FinalProject.Business.Concrete
         }
         public IDataResult<List<Material>> GetAll()
         {
-            return new SuccessDataResult<List<Material>>(_materialDal.GetAll(), Messages.MaterialListed);
+            return new SuccessDataResult<List<Material>>(_materialDal.GetMaterials(), Messages.MaterialListed);
         }
 
         public IResult Update(MaterialDto materialDto)

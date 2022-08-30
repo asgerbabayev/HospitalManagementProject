@@ -8,5 +8,6 @@ namespace FinalProject.DataAccess.Abstract
 {
     public interface IControlDal : IEntityRepository<Control>
     {
+        List<Control> GetControls();
     }
 }

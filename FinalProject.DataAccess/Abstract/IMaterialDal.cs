@@ -9,5 +9,6 @@ namespace FinalProject.DataAccess.Abstract
     public interface IMaterialDal : IEntityRepository<Material>
     {
         Material GetMaterial(int id);
+        List<Material> GetMaterials();
     }
 }

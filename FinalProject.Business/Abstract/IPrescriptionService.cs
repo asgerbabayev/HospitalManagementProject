@@ -13,5 +13,6 @@ namespace FinalProject.Business.Abstract
         IResult Update(PrescriptionDto prescriptionDto);
         IResult Delete(int id);
         IDataResult<List<Prescription>> GetAll();
+        IDataResult<Prescription> GetById(int id);
     }
 }

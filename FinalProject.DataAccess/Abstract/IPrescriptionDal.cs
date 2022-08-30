@@ -8,5 +8,6 @@ namespace FinalProject.DataAccess.Abstract
 {
     public interface IPrescriptionDal : IEntityRepository<Prescription>
     {
+        List<Prescription> GetPrescriptionsWithRegistry();
     }
 }

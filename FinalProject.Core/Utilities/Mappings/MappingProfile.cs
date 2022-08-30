@@ -31,10 +31,6 @@ namespace FinalProject.Core.Utilities.Mappings
             CreateMap<Prescription, PrescriptionDto>().ReverseMap();
 
             CreateMap<Control, ControlDto>().ReverseMap();
-
-            CreateMap<Analysis, AnalysisDto>().ReverseMap();
-
-            CreateMap<ControlAnalysis, ControlAnalysisDto>().ReverseMap();
         }
     }
 }

@@ -19,5 +19,13 @@ namespace FinalProject.DataAccess.Concrete.EntityFramework
                 return context.Materials.Include(x => x.Registry).Include(y => y.Stock).FirstOrDefault();
             }
         }
+
+        public List<Material> GetMaterials()
+        {
+            using (Context context = new Context())
+            {
+                return context.Materials.Include(x => x.Registry).Include(y => y.Stock).ToList();
+            }
+        }
     }
 }

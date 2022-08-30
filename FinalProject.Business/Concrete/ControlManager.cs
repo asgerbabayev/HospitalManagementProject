@@ -37,12 +37,14 @@ namespace FinalProject.Business.Concrete
 
         public IDataResult<Control> GetById(int id)
         {
-            return new SuccessDataResult<Control>(_controlDal.Get(x => x.Id == id), Messages.ControlGeted);
+            var result = _controlDal.Get(x => x.Id == id);
+            if (result == null) return new ErrorDataResult<Control>(Messages.ControlGeted);
+            return new SuccessDataResult<Control>(result);
         }
 
         public IDataResult<List<Control>> GetAll()
         {
-            return new SuccessDataResult<List<Control>>(_controlDal.GetAll(), Messages.ControlListed);
+            return new SuccessDataResult<List<Control>>(_controlDal.GetControls(), Messages.ControlListed);
         }
 
         public IResult Update(ControlDto controlDto)

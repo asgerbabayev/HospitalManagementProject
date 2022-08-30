@@ -43,12 +43,6 @@ namespace FinalProject.Business.DependencyResolvers
             builder.RegisterType<ControlManager>().As<IControlService>().SingleInstance();
             builder.RegisterType<EfControlDal>().As<IControlDal>().SingleInstance();
 
-            builder.RegisterType<AnalysisManager>().As<IAnalysisService>().SingleInstance();
-            builder.RegisterType<EfAnalysisDal>().As<IAnalysisDal>().SingleInstance();
-
-            builder.RegisterType<ControlAnalysisManager>().As<IControlAnalysisService>().SingleInstance();
-            builder.RegisterType<EfControlAnalysisDal>().As<IControlAnalysisDal>().SingleInstance();
-
             builder.RegisterType<JwtManager>().As<IJwtService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
         }

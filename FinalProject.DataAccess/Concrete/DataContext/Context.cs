@@ -27,7 +27,5 @@ namespace FinalProject.DataAccess.Concrete.DataContext
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Registry> Registries { get; set; }
         public DbSet<Control> Controls { get; set; }
-        public DbSet<Analysis> Analyses { get; set; }
-        public DbSet<ControlAnalysis> ControlAnalyses { get; set; }
     }
 }

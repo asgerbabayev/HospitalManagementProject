@@ -2,9 +2,7 @@
 using FinalProject.Business.ValidationRules.FluentValidation;
 using FinalProject.Core.Utilities.Security.JWT;
 using FinalProject.Entities.DTOs;
-using FluentValidation;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -13,47 +11,50 @@ namespace FinalProject.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class PatientController : ControllerBase
+    public class PrescriptionController : ControllerBase
     {
-        private readonly IPatientService _patientService;
+        private readonly IPrescriptionService _prescriptionService;
         private readonly IJwtService _jwtService;
 
-        public PatientController(IPatientService patientService, IJwtService jwtService)
+        public PrescriptionController(IJwtService jwtService, IPrescriptionService prescriptionService)
         {
-            _patientService = patientService;
             _jwtService = jwtService;
+            _prescriptionService = prescriptionService;
         }
 
         [HttpPost]
-        public IActionResult Add(PatientDto patient)
+        public IActionResult Add(PrescriptionDto prescription)
         {
-            PatientValidator rules = new PatientValidator();
-            ValidationResult result = rules.Validate(patient);
+            PrescriptionValidator rules = new PrescriptionValidator();
+            ValidationResult result = rules.Validate(prescription);
             if (!result.IsValid)
                 foreach (var e in result.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+            var a = verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value;
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Doctor")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
-            var resultService = _patientService.Add(patient);
+            var resultService = _prescriptionService.Add(prescription);
             if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService.Message);
             return Ok(resultService);
         }
 
         [HttpPut]
-        public IActionResult Update(PatientDto patient)
+        public IActionResult Update(PrescriptionDto prescription)
         {
-            PatientValidator rules = new PatientValidator();
-            ValidationResult result = rules.Validate(patient);
+            PrescriptionValidator rules = new PrescriptionValidator();
+            ValidationResult result = rules.Validate(prescription);
             if (!result.IsValid)
                 foreach (var e in result.Errors)
                     return StatusCode(StatusCodes.Status400BadRequest, e.ErrorMessage);
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
-            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+            if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Doctor")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
-            var resultService = _patientService.Update(patient);
+            var resultService = _prescriptionService.Update(prescription);
             if (!resultService.Success) return StatusCode(StatusCodes.Status400BadRequest, resultService.Message);
             return Ok(resultService);
         }
@@ -64,9 +65,9 @@ namespace FinalProject.Api.Controllers
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
             if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
-                   verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Doctor")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
-            var result = _patientService.Delete(id);
+            var result = _prescriptionService.Delete(id);
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
@@ -77,9 +78,9 @@ namespace FinalProject.Api.Controllers
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
             if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
-                verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+                            verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Doctor")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
-            var result = _patientService.GetAll();
+            var result = _prescriptionService.GetAll();
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
@@ -90,13 +91,11 @@ namespace FinalProject.Api.Controllers
             var token = Request.Cookies["token"];
             var verifyToken = _jwtService.VerifyToken(token);
             if (!verifyToken.Success || verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Admin" &&
-                           verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Reception")
+                           verifyToken.Data.Claims.FirstOrDefault(x => x.Type == RoleType.Type).Value != "Doctor")
                 return Unauthorized(new { message = "Bu əməliyyat üçün icazəniz yoxdur" });
-            var result = _patientService.GetById(id);
+            var result = _prescriptionService.GetById(id);
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
-
-        
     }
 }
